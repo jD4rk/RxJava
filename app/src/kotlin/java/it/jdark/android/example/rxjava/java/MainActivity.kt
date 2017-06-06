@@ -4,7 +4,6 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.text.TextUtils
 import android.util.Log
@@ -21,9 +20,9 @@ import io.reactivex.schedulers.Schedulers
 import it.jdark.android.example.rxjava.R
 import it.jdark.android.example.rxjava.java.adapter.MyRecyclerViewAdapter
 import it.jdark.android.example.rxjava.java.model.GitHubRepo
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity(), View.OnClickListener {
-    lateinit var mRecyclerView: RecyclerView
     lateinit var adapter: MyRecyclerViewAdapter
     lateinit var searchText: EditText
 
@@ -39,13 +38,15 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         toolbar.setTitle(R.string.title)
         setSupportActionBar(toolbar)
 
-        mRecyclerView = findViewById(R.id.recycler_view) as RecyclerView
-        mRecyclerView.setHasFixedSize(true)
-        mRecyclerView.layoutManager = LinearLayoutManager(this)
-        mRecyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
+        // Example of usage Kotlin Android Extension
+        edit_text_username.setText("Test Kotlin Android Extendions")
+
+        recycler_view.setHasFixedSize(true)
+        recycler_view.layoutManager = LinearLayoutManager(this)
+        recycler_view.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
 
         adapter = MyRecyclerViewAdapter()
-        mRecyclerView.adapter = adapter
+        recycler_view.adapter = adapter
 
         searchText = findViewById(R.id.edit_text_username) as EditText
         val searchButton = findViewById(R.id.search_button) as Button
@@ -73,11 +74,11 @@ class MainActivity : BaseActivity(), View.OnClickListener {
 
                         override fun onError(e: Throwable) {
                             Toast.makeText(applicationContext, "Error " + e.localizedMessage, Toast.LENGTH_SHORT).show()
-                            (mRecyclerView.adapter as MyRecyclerViewAdapter).setGitHubRepos(null)
+                            (recycler_view.adapter as MyRecyclerViewAdapter).setGitHubRepos(null)
                         }
 
                         override fun onNext(value: List<GitHubRepo>) {
-                            (mRecyclerView.adapter as MyRecyclerViewAdapter).setGitHubRepos(value)
+                            (recycler_view.adapter as MyRecyclerViewAdapter).setGitHubRepos(value)
                         }
                     }))
 
@@ -104,6 +105,6 @@ class MainActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun handleResponse(response: List<GitHubRepo>) {
-        (mRecyclerView.adapter as MyRecyclerViewAdapter).setGitHubRepos(response)
+        (recycler_view.adapter as MyRecyclerViewAdapter).setGitHubRepos(response)
     }
 }
