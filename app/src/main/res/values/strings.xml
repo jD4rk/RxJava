@@ -1,2 +1,11 @@
 <resources>
+    <string name="search_btn">Search</string>
+
+    <string name="btn_search">Search</string>
+
+    <string name="text_view_name">name</string>
+    <string name="text_view_desc">description</string>
+    <string name="text_view_lang">language</string>
+    <string name="text_view_stas">stars</string>
+    <string name="hint">search</string>
 </resources>
