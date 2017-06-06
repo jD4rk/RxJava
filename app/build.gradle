@@ -8,7 +8,7 @@ android {
     defaultConfig {
         applicationId "it.jdark.android.example.rxjava"
         minSdkVersion 21
-        targetSdkVersion 24
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -22,18 +22,18 @@ android {
 
     // TRAINING PURPOSE ONLY
     // Flavour just to be allow to write different version of the same application
-    // using only java / kotlin
+    // using only java or kotlin
     flavorDimensions "languages"
     productFlavors {
         java {
-            applicationId "it.jdark.android.example.rxjava"
+            applicationId "it.jdark.android.example.rxjava.java"
             versionCode 1
             versionName "1.0-java"
             dimension "languages"
         }
         kotlin {
-            applicationId "it.jdark.android.example.rxjava"
-            versionCode 2
+            applicationId "it.jdark.android.example.rxjava.kotlin"
+            versionCode 1
             versionName "1.0-kotlin"
             dimension "languages"
         }

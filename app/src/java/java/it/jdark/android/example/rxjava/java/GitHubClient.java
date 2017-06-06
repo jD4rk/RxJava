@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * @Autor jDark
  */
 
-public class GitHubClient {
+class GitHubClient {
     private static final String GITHUB_BASE_URL = "https://api.github.com/";
 
     private static GitHubClient instance;
@@ -35,14 +35,14 @@ public class GitHubClient {
         gitHubService = retrofit.create(GitHubService.class);
     }
 
-    public static GitHubClient getInstance() {
+    static GitHubClient getInstance() {
         if (instance == null) {
             instance = new GitHubClient();
         }
         return instance;
     }
 
-    public Observable<List<GitHubRepo>> getStarredRepos(@NonNull String userName) {
+    Observable<List<GitHubRepo>> getStarredRepos(@NonNull String userName) {
         return gitHubService.getStarredRepositories(userName);
     }
 
