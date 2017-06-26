@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import it.jdark.android.example.rxjava.R
 import it.jdark.android.example.rxjava.java.model.GitHubRepo
+import kotlinx.android.synthetic.main.item.view.*
 import java.util.*
+
 
 /**
  * Created on 06/06/17.
@@ -49,10 +51,10 @@ class MyRecyclerViewAdapter : RecyclerView.Adapter<MyRecyclerViewAdapter.GitHubR
         val textStars: TextView
 
         init {
-            textRepoName = itemView.findViewById(R.id.text_view_name) as TextView
-            textRepoDescription = itemView.findViewById(R.id.text_view_desc) as TextView
-            textLanguage = itemView.findViewById(R.id.text_view_lang) as TextView
-            textStars = itemView.findViewById(R.id.text_view_stars) as TextView
+            textRepoName = itemView.text_view_name
+            textRepoDescription = itemView.text_view_desc
+            textLanguage = itemView.text_view_lang
+            textStars = itemView.text_view_stars
         }
     }
 
