@@ -53,11 +53,11 @@ public class JavaActivity extends BaseActivity implements EasyPermissions.Permis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.java_title);
         setSupportActionBar(toolbar);
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
@@ -65,7 +65,7 @@ public class JavaActivity extends BaseActivity implements EasyPermissions.Permis
         adapter = new MyRecyclerViewAdapter();
         mRecyclerView.setAdapter(adapter);
 
-        searchText = (EditText) findViewById(R.id.edit_text_username);
+        searchText = findViewById(R.id.edit_text_username);
         findViewById(R.id.search_button).setOnClickListener(v-> checkPermissionAndExecuteListener());
 
     }
@@ -118,6 +118,7 @@ public class JavaActivity extends BaseActivity implements EasyPermissions.Permis
 
                         @Override
                         public void onNext(List<GitHubRepo> value) {
+                            Log.i(TAG, "onNext -> Verbose!");
                             ((MyRecyclerViewAdapter) mRecyclerView.getAdapter()).setGitHubRepos(value);
                         }
                     }));
@@ -140,6 +141,7 @@ public class JavaActivity extends BaseActivity implements EasyPermissions.Permis
     }
 
     private void handleResponse(List<GitHubRepo> response) {
+        Log.i(TAG, "onNext -> Compact!");
         ((MyRecyclerViewAdapter) mRecyclerView.getAdapter()).setGitHubRepos(response);
     }
 
