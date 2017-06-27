@@ -9,6 +9,7 @@
     <string name="text_view_lang">language</string>
     <string name="text_view_stas">stars</string>
     <string name="hint">search</string>
+    <string name="loading">Loading…</string>
 
     <string name="rationale_location_contacts">Custom Explanation why this application needs the permissions </string>
     <string name="returned_from_app_settings_to_activity">Return from setting activity</string>

@@ -106,14 +106,22 @@ public class JavaActivity extends BaseActivity implements EasyPermissions.Permis
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeWith(new DisposableObserver<List<GitHubRepo>>() {
                         @Override
+                        protected void onStart() {
+                            super.onStart();
+                            showProgressDialog();
+                        }
+
+                        @Override
                         public void onComplete() {
                             Log.d(TAG, "onComplete: Finish!");
+                            hideProgressDialog();
                         }
 
                         @Override
                         public void onError(Throwable e) {
                             Toast.makeText(getApplicationContext(), "Error "+e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                             ((MyRecyclerViewAdapter) mRecyclerView.getAdapter()).setGitHubRepos(null);
+                            hideProgressDialog();
                         }
 
                         @Override

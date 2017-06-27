@@ -91,13 +91,21 @@ class KotlinActivity : BaseActivity(), View.OnClickListener, EasyPermissions.Per
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeWith(object : DisposableObserver<List<GitHubRepo>>() {
+                        override fun onStart() {
+                            super.onStart()
+                            showProgressDialog()
+                        }
+
                         override fun onComplete() {
                             debugLog("onComplete: Finish!")
+                            hideProgressDialog()
                         }
 
                         override fun onError(e: Throwable) {
                             shortToast("Error " + e.localizedMessage)
+                            errorLog("Error " + e.localizedMessage)
                             (recycler_view.adapter as MyRecyclerViewAdapter).setGitHubRepos(null)
+                            hideProgressDialog()
                         }
 
                         override fun onNext(value: List<GitHubRepo>) {
@@ -126,6 +134,7 @@ class KotlinActivity : BaseActivity(), View.OnClickListener, EasyPermissions.Per
 
     private fun handleError(error: Throwable) {
         shortToast("Error " + error.localizedMessage)
+        errorLog("Error" + error.localizedMessage)
     }
 
     private fun handleResponse(response: List<GitHubRepo>) {
@@ -179,7 +188,6 @@ class KotlinActivity : BaseActivity(), View.OnClickListener, EasyPermissions.Per
 
     // Some Kotlin Facilities
     fun Context.shortToast(message: CharSequence) = Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-
     fun Context.longToast(message: CharSequence) = Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 
     fun Context.debugLog(message: String) = Log.d(TAG, message)
