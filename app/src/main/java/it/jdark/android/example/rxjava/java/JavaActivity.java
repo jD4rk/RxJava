@@ -123,7 +123,7 @@ public class JavaActivity extends BaseActivity implements EasyPermissions.Permis
                     }));
 
             // Compact mode (callback)
-            subscription.add(GitHubClient.getInstance().getStarredRepos(userName)
+            subscription.add(mObservable(userName)
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
                     .subscribe(response -> handleResponse(response), error -> handleError(error)));
