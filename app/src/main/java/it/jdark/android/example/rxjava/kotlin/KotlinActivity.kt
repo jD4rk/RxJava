@@ -14,6 +14,7 @@ import android.widget.Toast
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import it.jdark.android.example.rxjava.R
 import it.jdark.android.example.rxjava.common.BaseActivity
@@ -82,27 +83,28 @@ class KotlinActivity : BaseActivity(), View.OnClickListener, EasyPermissions.Per
     }
 
     private fun execution() {
-        var userName = edit_text_username.text.toString()
+        val userName = edit_text_username.text.toString()
         if (!TextUtils.isEmpty(userName)) {
             // VERBOSE WAY
             debugLog("onClick: ")
-//            subscription.add(mObservable(userName)
-//                    .subscribeOn(Schedulers.io())
-//                    .observeOn(AndroidSchedulers.mainThread())
-//                    .subscribeWith(object : DisposableObserver<List<GitHubRepo>>() {
-//                        override fun onComplete() {
-//                            debugLog("onComplete: Finish!")
-//                        }
-//
-//                        override fun onError(e: Throwable) {
-//                            shortToast("Error " + e.localizedMessage)
-//                            (recycler_view.adapter as MyRecyclerViewAdapter).setGitHubRepos(null)
-//                        }
-//
-//                        override fun onNext(value: List<GitHubRepo>) {
-//                            (recycler_view.adapter as MyRecyclerViewAdapter).setGitHubRepos(value)
-//                        }
-//                    }))
+            subscription.add(mObservable(userName)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeWith(object : DisposableObserver<List<GitHubRepo>>() {
+                        override fun onComplete() {
+                            debugLog("onComplete: Finish!")
+                        }
+
+                        override fun onError(e: Throwable) {
+                            shortToast("Error " + e.localizedMessage)
+                            (recycler_view.adapter as MyRecyclerViewAdapter).setGitHubRepos(null)
+                        }
+
+                        override fun onNext(value: List<GitHubRepo>) {
+                            infoLog("onNext -> Verbose")
+                            (recycler_view.adapter as MyRecyclerViewAdapter).setGitHubRepos(value)
+                        }
+                    }))
 
             // COMPACT WAY
             subscription.add(mObservable(userName)
@@ -127,6 +129,7 @@ class KotlinActivity : BaseActivity(), View.OnClickListener, EasyPermissions.Per
     }
 
     private fun handleResponse(response: List<GitHubRepo>) {
+        infoLog("onNext -> Compact")
         (recycler_view.adapter as MyRecyclerViewAdapter).setGitHubRepos(response)
     }
 
@@ -181,5 +184,5 @@ class KotlinActivity : BaseActivity(), View.OnClickListener, EasyPermissions.Per
 
     fun Context.debugLog(message: String) = Log.d(TAG, message)
     fun Context.errorLog(message: String) = Log.e(TAG, message)
-    fun Context.errorInf(message: String) = Log.i(TAG, message)
+    fun Context.infoLog(message: String) = Log.i(TAG, message)
 }
