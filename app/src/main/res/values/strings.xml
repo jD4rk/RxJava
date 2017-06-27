@@ -1,5 +1,5 @@
 <resources>
-    <string name="title_activity_choose">ChooseActivity</string>
+    <string name="title_activity_choose">RX Java</string>
 
     <string name="search_btn">Search</string>
     <string name="btn_search">Search</string>
@@ -14,4 +14,17 @@
     <string name="returned_from_app_settings_to_activity">Return from setting activity</string>
     <string name="rationale_exit">Exit</string>
     <string name="rationale_ok">Continue</string>
+
+    <!--Kotlin-->
+    <string name="kotlin_app_name">RxJava - Kotlin</string>
+    <string name="kotlin_title">RxJava (Kotlin)</string>
+    <string name="kotlin_desc">Kotlin Version</string>
+    <string name="kotlin_version">Implemented in Kotlin</string>
+    <string name="kotlin_android_extension_msg">Filled By Kotlin Android Extendions</string>
+
+    <!--Java-->
+    <string name="java_app_name">RxJava - Java</string>
+    <string name="java_title">RxJava (java)</string>
+    <string name="java_desc">Java Version</string>
+    <string name="java_version">Implemented in Java</string>
 </resources>

@@ -22,13 +22,14 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 import it.jdark.android.example.rxjava.R;
+import it.jdark.android.example.rxjava.common.BaseActivity;
 import it.jdark.android.example.rxjava.java.Adapter.MyRecyclerViewAdapter;
 import it.jdark.android.example.rxjava.java.model.GitHubRepo;
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.AppSettingsDialog;
 import pub.devrel.easypermissions.EasyPermissions;
 
-public class MainActivity extends BaseActivity implements EasyPermissions.PermissionCallbacks {
+public class JavaActivity extends BaseActivity implements EasyPermissions.PermissionCallbacks {
 
     private final String TAG = getClass().getSimpleName();
 
@@ -53,7 +54,7 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.title);
+        toolbar.setTitle(R.string.java_title);
         setSupportActionBar(toolbar);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);

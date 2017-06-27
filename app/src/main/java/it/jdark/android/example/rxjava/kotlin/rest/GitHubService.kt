@@ -1,7 +1,7 @@
-package it.jdark.android.example.rxjava.java.rest
+package it.jdark.android.example.rxjava.kotlin.rest
 
 import io.reactivex.Observable
-import it.jdark.android.example.rxjava.java.model.GitHubRepo
+import it.jdark.android.example.rxjava.kotlin.model.GitHubRepo
 import retrofit2.http.GET
 import retrofit2.http.Path
 

@@ -1,4 +1,4 @@
-package it.jdark.android.example.rxjava.java;
+package it.jdark.android.example.rxjava.common;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

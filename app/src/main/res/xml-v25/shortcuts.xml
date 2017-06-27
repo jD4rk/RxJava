@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="java"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/java_app_name">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="it.jdark.android.example.rxjava"
+            android:targetClass="it.jdark.android.example.rxjava.java.JavaActivity"/>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="kotlin"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/kotlin_app_name">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="it.jdark.android.example.rxjava"
+            android:targetClass="it.jdark.android.example.rxjava.kotlin.KotlinActivity"/>
+    </shortcut>
+
+</shortcuts>

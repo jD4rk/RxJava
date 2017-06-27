@@ -1,4 +1,4 @@
-package it.jdark.android.example.rxjava.java.model
+package it.jdark.android.example.rxjava.kotlin.model
 
 /**
  * Created on 06/06/17.

@@ -1,13 +1,13 @@
-package it.jdark.android.example.rxjava.java
+package it.jdark.android.example.rxjava.kotlin
 
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
 import io.reactivex.Observable
-import it.jdark.android.example.rxjava.java.model.GitHubRepo
-import it.jdark.android.example.rxjava.java.rest.GitHubService
+import it.jdark.android.example.rxjava.kotlin.rest.GitHubService
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import it.jdark.android.example.rxjava.kotlin.model.GitHubRepo
 
 /**
  * Created on 06/06/17.

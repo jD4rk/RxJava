@@ -1,4 +1,4 @@
-package it.jdark.android.example.rxjava.java
+package it.jdark.android.example.rxjava.kotlin
 
 import android.Manifest
 import android.content.Context
@@ -16,14 +16,15 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import it.jdark.android.example.rxjava.R
-import it.jdark.android.example.rxjava.java.adapter.MyRecyclerViewAdapter
-import it.jdark.android.example.rxjava.java.model.GitHubRepo
+import it.jdark.android.example.rxjava.common.BaseActivity
+import it.jdark.android.example.rxjava.kotlin.adapter.MyRecyclerViewAdapter
+import it.jdark.android.example.rxjava.kotlin.model.GitHubRepo
 import kotlinx.android.synthetic.main.activity_main.*
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 
 
-class MainActivity : BaseActivity(), View.OnClickListener, EasyPermissions.PermissionCallbacks {
+class KotlinActivity : BaseActivity(), View.OnClickListener, EasyPermissions.PermissionCallbacks {
     lateinit var adapter: MyRecyclerViewAdapter
 
     internal val TAG = javaClass.simpleName
@@ -39,7 +40,7 @@ class MainActivity : BaseActivity(), View.OnClickListener, EasyPermissions.Permi
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        toolbar.setTitle(R.string.title)
+        toolbar.setTitle(R.string.kotlin_title)
         setSupportActionBar(toolbar)
 
         // Example of usage Kotlin Android Extension

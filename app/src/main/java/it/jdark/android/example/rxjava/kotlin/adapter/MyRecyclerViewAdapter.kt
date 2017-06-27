@@ -1,4 +1,4 @@
-package it.jdark.android.example.rxjava.java.adapter
+package it.jdark.android.example.rxjava.kotlin.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import it.jdark.android.example.rxjava.R
-import it.jdark.android.example.rxjava.java.model.GitHubRepo
 import kotlinx.android.synthetic.main.item.view.*
 import java.util.*
+import it.jdark.android.example.rxjava.kotlin.model.GitHubRepo
 
 
 /**

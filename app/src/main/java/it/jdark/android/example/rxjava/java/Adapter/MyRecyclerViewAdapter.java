@@ -7,11 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import it.jdark.android.example.rxjava.java.model.GitHubRepo;
 import java.util.ArrayList;
 import java.util.List;
 
 import it.jdark.android.example.rxjava.R;
-import it.jdark.android.example.rxjava.java.model.GitHubRepo;
 
 /**
  * Created on 31/05/17.
